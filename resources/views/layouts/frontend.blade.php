@@ -6,7 +6,6 @@
         <link href="/css/app.css" rel="stylesheet">
     </head>
     <body>
-        
         <div id="app" v-cloak>
             <div class="container">
                 <nav class="navbar navbar-light bg-light">
@@ -14,11 +13,7 @@
                     <a class="navbar-brand" href="/">Home</a>
                   </div>
                 </nav>
-                <div class="row">
-                    @foreach($data as $datum)
-                        <image-component :datum="{{json_encode($datum)}}"></image-component>
-                    @endforeach
-                </div>
+                @yield('content')
             </div>
         </div>
     </body>

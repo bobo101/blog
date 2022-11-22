@@ -15,6 +15,7 @@ class AddFileToArt extends Migration
     {
         Schema::table('art', function (Blueprint $table) {
             $table->string('file')->nullable();
+            $table->text('description')->nullable();
         });
     }
 
@@ -25,8 +26,9 @@ class AddFileToArt extends Migration
      */
     public function down()
     {
-        Schema::table('arts', function (Blueprint $table) {
+        Schema::table('art', function (Blueprint $table) {
             $table->dropColumn('file');
+            $table->dropColumn('description');
         });
     }
 }

@@ -15,6 +15,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', 'HomeController@index');
 
+Route::get('/arts/{art}', 'HomeController@show');
+
 Route::middleware('auth')->prefix('admin')->namespace('Admin')->group(function () {
 
     Route::resource('arts', 'ArtController');

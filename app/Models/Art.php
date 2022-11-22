@@ -11,7 +11,7 @@ class Art extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['title', 'image', 'file'];
+    protected $fillable = ['title', 'image', 'file', 'description'];
 
     public function tags(): BelongsToMany
     {

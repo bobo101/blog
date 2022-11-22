@@ -33,6 +33,12 @@
             <input class="form-control" type="file" name="file">
         </div>
     </div>
+    <div class="row justify-content-center mb-3">
+        <div class="col-sm-8">
+            <label class="form-label">Description</label>
+            <textarea name="description" class="form-control">{{$art['description'] ?? ''}}</textarea>
+        </div>
+    </div>
     <div class="row justify-content-center">
         <div class="col-sm-8">
             <div align="right">

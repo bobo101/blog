@@ -2,29 +2,30 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Art;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
     public function index(Request $request)
     {
-        $data = [
-            [
-                'id' => 1,
-                'title' => 'Foo title',
-                'image' => 'https://via.placeholder.com/300',
-                'tags' => ['foo1', 'foo2', 'foo3'],
-                'authors' => ['author1', 'author2'],
-            ],
-            [
-                'id' => 2,
-                'title' => 'Bar title',
-                'image' => 'https://via.placeholder.com/300x200',
-                'tags' => ['bar1', 'bar2', 'bar3'],
-                'authors' => ['author3']
-            ],
-        ];
+        $arts = Art::all();
+        $data = $arts->map(function($art){
+            return [
+                'id' => $art->id,
+                'title' => $art->title,
+                'image' => Storage::disk('public')->url($art->image),
+                'tags' => $art->tags->pluck('name')->toArray(),
+                'authors' => $art->authors->pluck('name')->toArray(),
+            ];
+        });
 
-        return view('app', compact('data'));
+        return view('home.app', compact('data'));
+    }
+
+    public function show(Art $art)
+    {
+        return view('home.show', compact('art'));
     }
 }

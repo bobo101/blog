@@ -32,6 +32,7 @@ class ArtController extends Controller
     {
         $art = Art::create([
             'title' => $request->title,
+            'description' => $request->description,
             'image' => $this->storeImage($request->file('image')),
             'file' => $this->storeFile($request->file('file')),
         ]);
@@ -54,6 +55,7 @@ class ArtController extends Controller
     {
         $art->update(array_filter([
             'title' => $request->title,
+            'description' => $request->description,
             'image' => $this->storeImage($request->file('image')),
             'file' => $this->storeFile($request->file('file')),
         ]));

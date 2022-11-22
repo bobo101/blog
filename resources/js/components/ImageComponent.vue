@@ -32,7 +32,7 @@
         props: ['datum'],
         methods: {
             clicked: function (event) {
-                window.open(`/images/${this.datum.id}`, '_self')
+                window.open(`/arts/${this.datum.id}`, '_self')
             }
         },
     }

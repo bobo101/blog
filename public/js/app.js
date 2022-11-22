@@ -5311,7 +5311,7 @@ __webpack_require__.r(__webpack_exports__);
   props: ['datum'],
   methods: {
     clicked: function clicked(event) {
-      window.open("/images/".concat(this.datum.id), '_self');
+      window.open("/arts/".concat(this.datum.id), '_self');
     }
   }
 });
